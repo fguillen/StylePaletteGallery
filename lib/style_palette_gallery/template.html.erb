@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <title>StylePalette play ground</title>
+    <link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
+    <style>
+      body {
+        font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+        background-color: #eaeaea;
+        padding-bottom: 40px;
+      }
+
+      #wrapper {
+        width: 780px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 40px;
+        font-weight: bold;
+        padding: 10px;
+        color: #a9a9a9;
+        text-shadow: 0 1px 0 #fff;
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .label {
+        border-radius: 3px;
+        padding: 5px;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 4px 7px;
+        display: block;
+      }
+
+      #palettes_grille .label {
+        width: 130px;
+      }
+
+      ul.brushes li {
+        float: left;
+        margin: 2px;
+      }
+
+      .block {
+        background-color: white;
+        margin: 6px 0 4px 0;
+        padding: 18px;
+        border-radius: 4px 4px 0 0;
+        box-shadow: 0 0 4px #a9a9a9;
+        overflow: hidden;
+      }
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+      $(function(){
+        $("#form").on("submit", function(){
+          var form = $("#form");
+          $.ajax({
+            type: form.attr("method"),
+            url: form.attr("action"),
+            data: form.serialize(),
+            success: function (data) {
+              console.log(data);
+              $("#live_labels ul").prepend(data);
+            }
+          });
+
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>StylePalette playground</h1>
+
+      <div id="add_word_form" class="block">
+        <h2>Test palettes</h2>
+
+        <form id="form" action="/add_word">
+          <input type="text" name="word" placeholder="any-word" required />
+          <select name="palette_name">
+            <% @palettes.keys.each do |palette_name| %>
+              <option value="<%= palette_name %>"><%= palette_name %></option>
+            <% end %>
+          </select>
+          <input type="submit" value="Test &gt;&gt;" />
+        </form>
+        <div id="live_labels">
+          <ul class="brushes">
+          </ul>
+        </div>
+      </div>
+
+      <div id="palettes_grille">
+        <% @palettes.each do |palette_name, palette| %>
+          <div class="palette block">
+            <h2><%= palette_name %></h2>
+            <ul class="brushes">
+              <% palette.each do |brush| %>
+                <li class="label" style="<%= brush.style %>"><%= html_escape brush.marshal_dump %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+
+      <div id="footer" class="block">
+        This is a StylePalette tool –
+        <a href="https://github.com/fguillen/StylePalette">StylePalette repo</a>
+      </div>
+    </div>
+  </body>
+</html>

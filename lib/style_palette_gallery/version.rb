@@ -1,0 +1,3 @@
+module StylePaletteGallery
+  VERSION = "0.0.1"
+end

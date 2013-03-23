@@ -1,0 +1,33 @@
+{
+  "states": [
+    { "style": "style 1" },
+    { "style": "style 2" },
+    { "style": "style 3" },
+    { "style": "style 4", "regex": "blocked" }
+  ],
+
+  "number": [
+    { "style": "style 4", "regex": "^0$" },
+    { "style": "style 5", "regex": "^[^-]" },
+    { "style": "style 6", "regex": "^-" }
+  ],
+
+  "boolean": [
+    { "style": "style 7", "regex": "^(yes|1|true)$" },
+    { "style": "style 8", "regex": "^(no|0|false)$" }
+  ],
+
+  "tags": [
+    { "style": "style 9" },
+    { "style": "style 10" },
+    { "style": "style 11" },
+    { "style": "style 12" }
+  ],
+
+  "ranges": [
+    { "style": "style 13", "range": "..0" },
+    { "style": "style 14", "range": "0..20" },
+    { "style": "style 15", "range": "20..80" },
+    { "style": "style 16", "range": "80.." }
+  ]
+}
