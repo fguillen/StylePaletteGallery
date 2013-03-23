@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "style_palette", :path => "/Users/fguillen/Develop/Ruby/StylePalette"
+gem "style_palette"
 gem "sinatra"
 
 # test
