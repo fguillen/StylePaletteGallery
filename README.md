@@ -2,7 +2,7 @@
 
 Gallery playground to test the [StylePalette gem](https://github.com/fguillen/StylePalette)
 
-You don't need to install you can use the hosted demo:
+You don't need to install it you can use the hosted demo:
 
 - http://stylepalettegallery.fernandoguillen.info/
 
