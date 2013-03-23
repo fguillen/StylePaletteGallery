@@ -36,6 +36,11 @@
         display: block;
       }
 
+      .config textarea {
+        width: 600px;
+        height: 200px;
+      }
+
       #palettes_grille .label {
         width: 130px;
       }
@@ -58,7 +63,7 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
       $(function(){
-        $("#form").on("submit", function(){
+        $("#form_add_workd").on("submit", function(){
           var form = $("#form");
           $.ajax({
             type: form.attr("method"),
@@ -79,10 +84,20 @@
     <div id="wrapper">
       <h1>StylePalette playground</h1>
 
+      <div class="config block">
+        <h2>StylePalettes config</h2>
+        <form action="/config" method="post">
+          <textarea name="style_palettes"><%= StylePalette.palettes_config %></textarea>
+          <br />
+          <input type="submit" value="Update &gt;&gt;" /> |
+          <a href="/reset">Reset configuration</a>
+        </form>
+      </div>
+
       <div id="add_word_form" class="block">
         <h2>Test palettes</h2>
 
-        <form id="form" action="/add_word">
+        <form id="form_add_workd" action="/add_word">
           <input type="text" name="word" placeholder="any-word" required />
           <select name="palette_name">
             <% @palettes.keys.each do |palette_name| %>
