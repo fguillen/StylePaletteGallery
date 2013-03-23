@@ -1,9 +1,5 @@
 # StylePaletteGallery
 
-Playground for the [StylePalette gem](https://github.com/fguillen/StylePalette)
-
-# StylePaletteGallery
-
 Gallery playground to test the [StylePalette gem](https://github.com/fguillen/StylePalette)
 
 You don't need to install you can use the hosted demo:
