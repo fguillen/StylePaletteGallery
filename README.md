@@ -4,7 +4,7 @@ Gallery playground to test the [StylePalette gem](https://github.com/fguillen/St
 
 You don't need to install it you can use the hosted demo:
 
-- http://stylepalettegallery.fernandoguillen.info/
+- http://stylepalettegallery.herokuapp.com/
 
 ## Installation
 
